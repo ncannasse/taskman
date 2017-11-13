@@ -1,0 +1,19 @@
+{
+  "name": "taskman",
+  "version": "0.0.1",
+  "dependencies": {
+    "bootstrap": "^3.3.0",
+    "mongodb": "^2.2.19"
+  },
+  "description": "Advanced Task Manager",
+  "main": "taskman.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ncannasse/taskman.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ncannasse/taskman/issues"
+  },
+  "homepage": "https://github.com/ncannasse/taskman#readme"
+}
