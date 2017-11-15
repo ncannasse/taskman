@@ -51,6 +51,9 @@ class Main {
                     case "/delete":
                         var col = db.collection(args.collection);
                         col.deleteMany(args.query,onResult);
+					case "/aggregate":
+                        var col = db.collection(args.collection);
+                        col.aggregate(args.pipeline).toArray(onResult);
                     default:
                         resp.statusCode = 404;
                         resp.end("Not found");
