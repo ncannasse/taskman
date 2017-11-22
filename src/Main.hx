@@ -13,9 +13,17 @@ class Main {
         js.node.Http.createServer(function(req,resp) {
             var url = req.url;
             if( url == "/" ) url = "/index.html";
-            if( url.split("/").pop().indexOf(".") > 0 ) {
+			var baseName = url.split("/").pop();
+            if( baseName.indexOf(".") > 0 && url.indexOf("..") < 0 ) {
                 try {
-                    resp.end(sys.io.File.getContent("."+url));
+					var content = sys.io.File.getBytes("." + url);
+					var ext = baseName.split(".").pop().toLowerCase();
+					switch( ext ) {
+					case "png", "jpg", "jpeg", "gif":
+						resp.setHeader('Content-Type', 'image/' + ext);
+					default:
+					}
+                    resp.end(js.node.Buffer.hxFromBytes(content));
                     return;
                 } catch( e : Dynamic ) {
                 }
